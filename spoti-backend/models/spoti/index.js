@@ -1,4 +1,4 @@
-const { insertList } = require("./queries");
+const { insertList, selectLists } = require("./queries");
 
 const createList = (db) => async (listName, listURL, userId) => {
   try {
@@ -10,6 +10,23 @@ const createList = (db) => async (listName, listURL, userId) => {
     };
   } catch (error) {
     console.info("Create list error: ", error.message);
+    return {
+      ok: false,
+      message: error.message,
+    };
+  }
+};
+
+const getPlaylists = (db) => async (userId) => {
+  try {
+    const allLists = await db.query(selectLists(userId));
+
+    return {
+      ok: true,
+      data: allLists,
+    };
+  } catch (error) {
+    console.info("Selecct lists error: ", error.message);
     return {
       ok: false,
       message: error.message,
