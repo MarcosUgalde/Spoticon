@@ -17,9 +17,9 @@ const createList = (db) => async (listName, listURL, userId) => {
   }
 };
 
-const getPlaylists = (db) => async (userId) => {
+const getPlaylists = (db) => async (email) => {
   try {
-    const allLists = await db.query(selectLists(userId));
+    const allLists = await db.query(selectLists(email));
 
     return {
       ok: true,
@@ -36,4 +36,5 @@ const getPlaylists = (db) => async (userId) => {
 
 module.exports = {
   createList,
+  getPlaylists,
 };
