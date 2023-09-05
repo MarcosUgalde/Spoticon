@@ -1,10 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import { Switch, Route, Redirect } from 'wouter'
+import Login from './views/Login'
+import Mood from './views/Mood'
+
+const Main = () => {
+  return (
+      <Switch>      
+        <Route path='/login' component={Login} />
+        <Route path='/insert-mood' component={Mood} />
+        <Redirect to='/login' />
+      </Switch>   
+  )
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <Main />
   </React.StrictMode>,
 )
