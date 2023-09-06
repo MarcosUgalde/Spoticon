@@ -11,7 +11,7 @@ const Main = () => {
         <Route path='/login' component={Login} />
         <Route path='/insert-mood' component={Mood} />
         <Route path='/insert-params' component={ParamsInsertion} />
-        <Redirect to='/login' />
+        <Redirect to='/insert-params' />
       </Switch>   
   )
 }
