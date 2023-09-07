@@ -1,6 +1,7 @@
 import Styled from './styles'
 import axios from 'axios'
-import {useSearchParams} from 'react-router-dom'
+// import {useSearchParams} from 'react-router-dom'
+import {useRoute} from 'wouter'
 import { useEffect } from "react";
 
 const clientId='9edfeaf067c746c4b41774d953108e7a'
@@ -9,8 +10,12 @@ const scope = 'user-read-private user-read-email user-read-playback-state user-m
 const redirectUri= 'http://localhost:5173/login'
 
 const Login = () => {
-    const [searchParams] = useSearchParams();
-    const code = searchParams?.get("code")
+    // const [searchParams] = useSearchParams();
+    
+    const [match, params] = useRoute("/:code");
+
+    console.log(params)
+    const code = params.code
 
     const body = new URLSearchParams(
         {
