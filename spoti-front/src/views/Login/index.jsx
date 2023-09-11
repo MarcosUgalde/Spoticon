@@ -45,7 +45,17 @@ const Login = () => {
 
     return (
         <Styled.Container>
-            <button onClick={handleRedirect}>Iniciar sesion</button>
+                <h3>El camino más corto a tu playlist perfecta es Nébula</h3>
+                <p>Crea tu playlist para este instante en solo dos pasos:</p>
+                <ol>
+                    <li>Conéctate a tu cuenta de Spotify.</li>
+                    <li>Selecciona tu estado de ánimo.</li>
+                </ol>
+                <p>¡Y listo! En unos segundos tu match musical definitivo estará <br /> preparado, en sintonía con tu mood del momento y teniendo <br /> en cuenta tus géneros y artistas favoritos.</p>
+                <p>¡Empieza ya a descubrir nueva música que va contigo!</p>
+            <Styled.Button>
+                <button onClick={handleRedirect}>Crear mi playlist</button>
+            </Styled.Button>
         </Styled.Container>
     )
 }
